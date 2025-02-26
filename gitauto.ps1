@@ -1,8 +1,10 @@
+
+$Host.UI.RawUI.ForegroundColor = 'Blue'
 # Step 1: Display current git status
 git status
 
 # Step 2: Prompt user to proceed with adding changes (default to 'y')
-Write-Host "Do you want to add all changes to the staging area? (y/n) [Default: y]" -ForegroundColor Cyan -NoNewline
+Write-Host "Do you want to add all changes to the staging area? (y/n) [Default: y]: " -ForegroundColor Cyan -NoNewline
 $addChanges = Read-Host
 
 if ([string]::IsNullOrWhiteSpace($addChanges)) {
@@ -18,7 +20,7 @@ if ($addChanges -eq 'y') {
 
 # Step 3: Prompt user for a commit message (default to the current date and time)
 $now = Get-Date -Format 'yyyy-MM-dd HH:mm:ss'
-Write-Host "Enter commit message (default is 'update $now')" -ForegroundColor Cyan -NoNewline
+Write-Host "Enter commit message (default is 'update $now'): " -ForegroundColor Cyan -NoNewline
 $commitMessage = Read-Host
 
 if ([string]::IsNullOrWhiteSpace($commitMessage)) {
@@ -30,7 +32,7 @@ git commit -m $commitMessage
 Write-Host "Committed with message: '$commitMessage'" -ForegroundColor Green
 
 # Step 5: Prompt user to push to the repository (default to 'y')
-Write-Host "Do you want to push the changes to the remote repository? (y/n) [Default: y]" -ForegroundColor Cyan -NoNewline
+Write-Host "Do you want to push the changes to the remote repository? (y/n) [Default: y]: " -ForegroundColor Cyan -NoNewline
 $pushChanges = Read-Host
 
 if ([string]::IsNullOrWhiteSpace($pushChanges)) {
@@ -45,7 +47,7 @@ if ($pushChanges -eq 'y') {
 }
 
 # Step 6: Output the current date and time
-Write-Host "Changes updated in the remote repository \n Date: $now" -ForegroundColor Green
+Write-Host "Changes updated in the remote repository `n Date: $now" -ForegroundColor Green
 
 
 
