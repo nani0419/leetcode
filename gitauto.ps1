@@ -47,7 +47,7 @@ if ($pushChanges -eq 'y') {
 }
 
 # Step 6: Output the current date and time
-Write-Host "Changes updated in the remote repository `n Date: $now" -ForegroundColor Green
+Write-Host "Date: $now" -ForegroundColor Green
 
 
 
